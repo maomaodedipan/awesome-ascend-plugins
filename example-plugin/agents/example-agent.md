@@ -1,19 +1,6 @@
 ---
 name: example-agent
-description: Use this agent when the user asks to "run example agent", "demonstrate agents", "show agent format", or wants a structured walkthrough of plugin agent capabilities. Examples:
-
-<example>
-Context: User wants to see how agents work
-user: "Demonstrate the example agent"
-assistant: "I'll use the example-agent to walk through how plugin agents work."
-</example>
-
-<example>
-Context: User is learning plugin development
-user: "What's the difference between a skill and an agent?"
-assistant: "I'll use the example-agent to explain agent structure and when to use agents vs skills."
-</example>
-
+description: Use this agent when the user asks to "run example agent", "demonstrate agents", "show agent format", or wants a structured walkthrough of plugin agent capabilities
 model: inherit
 color: blue
 tools: ["Read", "Glob", "Grep"]
