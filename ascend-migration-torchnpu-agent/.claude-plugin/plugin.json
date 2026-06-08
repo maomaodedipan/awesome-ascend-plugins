@@ -1,0 +1,8 @@
+{
+  "name": "ascend-migration-torchnpu-agent",
+  "version": "1.0.0",
+  "description": "Claude Code agent plugin for migrating traditional deep learning models from CPU/GPU to Huawei Ascend NPU via torch_npu adaptation layer. Handles environment setup, code migration, interface replacement, debugging, and verification reporting.",
+  "author": {
+    "name": "Gongdayao"
+  }
+}

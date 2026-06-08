@@ -1,0 +1,58 @@
+{
+  "description": "Ascend NPU migration agent hooks — injects migration rules on session start and validates code changes post-edit. INSTALL NOTE: The install.sh script reads this file and merges entries into ~/.claude/settings.json with absolute paths. The ${CLAUDE_PLUGIN_ROOT} placeholder below is replaced at install time.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/session-start.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/post-edit.sh",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  },
+  "manual_setup": {
+    "description": "If install.sh cannot be used, manually add these entries to ~/.claude/settings.json under the 'hooks' key. Replace {PLUGIN_ROOT} with the absolute path to this plugin's directory.",
+    "settings_snippet": {
+      "hooks": {
+        "SessionStart": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "{PLUGIN_ROOT}/scripts/session-start.sh",
+                "timeout": 30
+              }
+            ]
+          }
+        ],
+        "PostToolUse": [
+          {
+            "matcher": "Write|Edit",
+            "hooks": [
+              {
+                "type": "command",
+                "command": "{PLUGIN_ROOT}/scripts/post-edit.sh",
+                "timeout": 15
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
